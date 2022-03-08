@@ -15,15 +15,9 @@ The phase 1 requirements can be viewed [here](https://github.com/microverseinc/c
 ## Built With
 
 - Major languages: Ruby
-- Frameworks: N/A
-- Technologies used: N/A
 - Tested with: - [Rubocop](https://rubocop.org/)
 
-### Usage
-
-- run: `library.rb`
-
-## Authors
+## Author
 
 👤 **Yuriy Chamkoriyski**
 
@@ -40,10 +34,6 @@ Feel free to check the [issues page](https://github.com/Hombre2014/Decode-a-mors
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-N/A
 
 ## 📝 License
 
