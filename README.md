@@ -12,6 +12,10 @@ The project requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 1 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_people.md)
 
+### Phase 2, decorate a class
+
+The phase 2 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_decorator_v2.md)
+
 ## Built With
 
 - Major languages: Ruby
