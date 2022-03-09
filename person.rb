@@ -1,8 +1,9 @@
-require './nameable.rb'
-require './decorator.rb'
+require './nameable'
+require './decorator'
 
 class Person < Nameable
   def initialize(age, name = 'Unknown', parrent_permission: true)
+    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
