@@ -2,12 +2,13 @@ require_relative 'student'
 require_relative 'person'
 require_relative 'teacher'
 require_relative 'book'
+require_relative 'rental'
 
 class App
   def run
     @persons = []
     @books = []
-    puts "Welcome to the School Library App!"
+    puts "\nWelcome to the School Library App!"
     display_menu
   end
 
@@ -28,13 +29,29 @@ class App
   end
   
   def list_all_books
-    puts 'Here is the list of all the books in the library'
-    puts
+    if @books.length == 0
+      puts "\nThere are no books in the library. You can create a book from the main menu."
+    else
+      puts "\nHere are all the books in the library:"
+      @books.each_with_index do |book, index|
+        puts "#{index + 1}. Book's title: #{book.title}, Book's author: #{book.author}"
+      end
+    end
   end
   
   def list_all_people
-    puts 'Here is the list of all the people'
-    puts
+    if @persons.length == 0
+      puts 'There are no registered persons. You can create a person from the main menu.'
+    else
+      puts "\nList of all the persons:"
+      @persons.each_with_index do |person, index|
+        if person.is_a?(Student)
+          puts "#{index + 1}. [Student] Name: #{person.name}, age: #{person.age}, with ID: #{person.id}"
+        else
+          puts "#{index + 1}. [Teacher] Name: #{person.name}, age: #{person.age}, with ID: #{person.id} and specialization: #{person.specialization}"
+        end
+      end
+    end
   end
   
   def create_a_person
@@ -85,12 +102,12 @@ class App
   
   def create_a_book
     puts "\nCreate a new book"
-    print "Enter book's title: "
-    book_title = gets.chomp
+    print "\nEnter book's title: "
+    title = gets.chomp
     print "Enter book's author: "
-    book_author = gets.chomp
-    @books.push(Book.new(book_title, book_author))
-    puts "Book #{book_title} created successfully.\n"
+    author = gets.chomp
+    @books.push(Book.new(title, author))
+    puts "Book #{title} created successfully.\n"
   end
   
   def create_a_rental
@@ -113,7 +130,7 @@ class App
       puts "\nThank you for using School Library App. Goodbye!"
       exit
     else
-      puts "Please, enter a valid number between 1 and 7.\n"
+      puts "\nPlease, enter a valid number between 1 and 7.\n"
     end
   end
 end
