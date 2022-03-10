@@ -2,6 +2,9 @@ require './nameable'
 require './decorator'
 
 class Person < Nameable
+  attr_accessor :name, :age
+  attr_reader :id, :rentals
+
   def initialize(age, name = 'Unknown', parrent_permission: true)
     super()
     @id = Random.rand(1..1000)
@@ -10,9 +13,6 @@ class Person < Nameable
     @parrent_permission = parrent_permission
     @rentals = []
   end
-
-  attr_accessor :name, :age
-  attr_reader :id, :rentals
 
   def can_use_services?
     is_of_age? || @parent_permission
