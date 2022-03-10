@@ -16,6 +16,10 @@ The phase 1 requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 2 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_decorator_v2.md)
 
+### Phase 3, set up associations
+
+The phase 3 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_associations.md)
+
 ## Built With
 
 - Major languages: Ruby
