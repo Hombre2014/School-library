@@ -20,6 +20,10 @@ The phase 2 requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 3 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_associations.md)
 
+### Phase 4, add basic UI
+
+The phase 4 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_ui.md)
+
 ## Built With
 
 - Major languages: Ruby
@@ -37,7 +41,7 @@ The phase 3 requirements can be viewed [here](https://github.com/microverseinc/c
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Hombre2014/Decode-a-morse-code).
+Feel free to check the [issues page](https://github.com/Hombre2014/School-library/issues).
 
 ## Show your support
 
