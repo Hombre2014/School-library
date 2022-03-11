@@ -3,6 +3,7 @@ require_relative 'person'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require 'pry'
 
 class App
   def run
@@ -105,7 +106,8 @@ class App
     print "\nEnter book's title: "
     title = gets.chomp
     print "Enter book's author: "
-    author = gets.chomp
+    authors = gets.chomp
+    binding.pry
     @books.push(Book.new(title, author))
     puts "Book #{title} created successfully.\n"
   end
