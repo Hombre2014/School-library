@@ -41,7 +41,7 @@ class App
   
   def list_all_people
     if @persons.length == 0
-      puts 'There are no registered persons. You can create a person from the main menu.'
+      puts "\nThere are no registered persons. You can create a person from the main menu."
     else
       puts "\nList of all the persons:"
       @persons.each_with_index do |person, index|
@@ -111,11 +111,54 @@ class App
   end
   
   def create_a_rental
-    puts 'Create a rental'
+    puts "\nCreate a new rental"
+    if @books.length == 0
+      puts "\nThere are no books in the library. You can create a book from the main menu."
+      display_menu
+    else
+      list_all_books
+      print "\nSelect which book you want to rent by entering its number: "
+      book_number = gets.chomp.to_i
+    end
+    if @persons.length == 0
+      puts "\nThere are no registered persons. You can create a person from the main menu."
+    else
+      list_all_people
+      print "\nSelect a person from the list by its number (not id!): "
+      person_number = gets.chomp.to_i
+    end
+    print "Enter date in the following format [YYYY/MM/DD]: "
+    date = gets.chomp
+    Rental.new(date, @persons[person_number - 1], @books[book_number - 1])
+    puts "Rental created successfully."
   end
   
+  def choosen_person(person_id)
+    @persons.each do |person|
+      return person if person.id == person_id
+    end
+    false
+  end
+
   def list_all_rentals
-    puts 'list all rentals'
+    list_all_people
+    print "\nWhich person's rentals you want to see? Please, enter the person's ID: "
+    person_id = gets.chomp.to_i
+    person = choosen_person(person_id)
+    if person
+      rentals = person.rentals
+      if rentals.length == 0
+        puts "\nThere are no rentals for this person's ID."
+      else
+        puts "\nList of all rentals: "
+        rentals.each_with_index do |book_rented, index|
+          puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
+        end
+      end
+    else
+      puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
+      return
+    end
   end
   
   def process_input(choice)
