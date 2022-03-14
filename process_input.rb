@@ -14,6 +14,7 @@ class ProcessInput
     @list_rentals = ListRentals.new(persons)
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def input
     case @choice
     when 1 then @list_books.display
@@ -29,4 +30,5 @@ class ProcessInput
       puts "\nPlease, enter a valid number between 1 and 7.\n"
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 end

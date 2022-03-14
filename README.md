@@ -24,6 +24,10 @@ The phase 3 requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 4 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_ui.md)
 
+### Phase 5, refactor your code
+
+The phase 5 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_refactor.md)
+
 ## Usage
 
 To run the project locally do the following:
@@ -49,6 +53,14 @@ To run the project locally do the following:
 - GitHub: [@Hombre2014](https://github.com/Hombre2014)
 - Twitter: [@Chamkoriyski](https://twitter.com/Chamkoriyski)
 - LinkedIn: [axebit](https://linkedin.com/in/axebit)
+
+From pahse 5 onwards
+
+👤 **Anuar Shaidenov**
+
+- GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)
+- Twitter: [@anuarnyi](https://twitter.com/anuarnyi)
+- LinkedIn: [Anuar Shaidenov](https://www.linkedin.com/in/anuar-shaidenov-365a951b8/)
 
 ## 🤝 Contributing
 

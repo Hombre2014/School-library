@@ -1,10 +1,10 @@
 module Helpers
-  def get_name_and_age
+  def name_and_age
     print 'Enter age: '
     age = gets.chomp.to_i
     print 'Enter name: '
     name = gets.chomp
-    info = {age: age, name: name}
+    { age: age, name: name }
   end
 
   def choosen_person(person_id)
@@ -13,5 +13,4 @@ module Helpers
     end
     false
   end
-
 end

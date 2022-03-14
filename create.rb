@@ -6,18 +6,19 @@ require_relative 'rental'
 require_relative 'list'
 
 class CreateBooks
-    def initialize(books)
-        @books = books
-    end
-    def create
-        puts "\nCreate a new book"
-        print "\nEnter book's title: "
-        title = gets.chomp
-        print "Enter book's author: "
-        author = gets.chomp
-        @books.push(Book.new(title, author))
-        puts "Book #{title} created successfully.\n"
-    end
+  def initialize(books)
+    @books = books
+  end
+
+  def create
+    puts "\nCreate a new book"
+    print "\nEnter book's title: "
+    title = gets.chomp
+    print "Enter book's author: "
+    author = gets.chomp
+    @books.push(Book.new(title, author))
+    puts "Book #{title} created successfully.\n"
+  end
 end
 
 class CreatePerson
@@ -45,7 +46,7 @@ class CreatePerson
 
   def create_student
     puts "\nCreate a new student"
-    student = get_name_and_age
+    student = name_and_age
     print 'Has parrent permition? Enter [Y/N]: '
     parent_permission = gets.chomp
     case parent_permission
@@ -61,7 +62,7 @@ class CreatePerson
 
   def create_teacher
     puts "\nCreate a new teacher"
-    teacher = get_name_and_age
+    teacher = name_and_age
     print 'Enter specialization: '
     specialization = gets.chomp
     Teacher.new(teacher[:name], teacher[:age], specialization)
@@ -99,5 +100,4 @@ class CreateRental
     Rental.new(date, @persons[person_number - 1], @books[book_number - 1])
     puts 'Rental created successfully.'
   end
-  
 end

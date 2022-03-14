@@ -8,7 +8,6 @@ class Main
     @rentals = []
   end
 
-
   def start
     puts "\nWelcome to the School Library App!"
     puts "\nPlease choose an option by entering a number:"
