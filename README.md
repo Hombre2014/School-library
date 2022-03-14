@@ -46,7 +46,7 @@ To run the project locally do the following:
 - Major languages: Ruby
 - Tested with: - [Rubocop](https://rubocop.org/)
 
-## Author
+## Authors
 
 👤 **Yuriy Chamkoriyski**
 
