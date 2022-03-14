@@ -1,14 +1,21 @@
+require_relative 'list'
+require_relative 'create'
+
 class ProcessInput
-  def initialize(choice)
+  def initialize(choice, books, rentals, persons)
     @choice = choice
+    @list_books = ListBooks.new(books)
+    @create_books = CreateBooks.new(books)
+    @persons = persons
+    @rentals = rentals
   end
 
-  def input(choice)
-    case choice
-    when 1 then list_all_books
+  def input
+    case @choice
+    when 1 then @list_books.display
     when 2 then list_all_people
     when 3 then create_a_person
-    when 4 then create_a_book
+    when 4 then @create_books.create
     when 5 then create_a_rental
     when 6 then list_all_rentals
     when 7

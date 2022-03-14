@@ -2,11 +2,12 @@
 require_relative 'process_input'
 
 class Main
-  def initialize(books, persons, rentals)
+  def initialize
     @persons = []
     @books = []
     @rentals = []
   end
+
 
   def start
     puts "\nWelcome to the School Library App!"
@@ -20,9 +21,11 @@ class Main
     puts "7 - Exit\n"
     print '[Your choice?]: '
     choice = gets.chomp.to_i
-    ProcessInput.input(choice)
-    main
+    process_input = ProcessInput.new(choice, @books, @rentals, @persons)
+    process_input.input
+    start
   end
 end
 
-main
+main = Main.new
+main.start
