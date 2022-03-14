@@ -4,12 +4,14 @@ require_relative 'create'
 class ProcessInput
   def initialize(choice, books, rentals, persons)
     @choice = choice
+    @persons = persons
+    @rentals = rentals
     @list_books = ListBooks.new(books)
     @create_books = CreateBooks.new(books)
     @create_person = CreatePerson.new(persons)
+    @create_rentals = CreateRental.new(rentals, books, persons)
     @list_persons = ListPersons.new(persons)
-    @persons = persons
-    @rentals = rentals
+    @list_rentals = ListRentals.new(persons)
   end
 
   def input
@@ -18,8 +20,8 @@ class ProcessInput
     when 2 then @list_persons.display
     when 3 then @create_person.create
     when 4 then @create_books.create
-    when 5 then create_a_rental
-    when 6 then list_all_rentals
+    when 5 then @create_rentals.create
+    when 6 then @list_rentals.display
     when 7
       puts "\nThank you for using School Library App. Goodbye!"
       exit

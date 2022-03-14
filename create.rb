@@ -2,6 +2,8 @@ require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'helper'
+require_relative 'rental'
+require_relative 'list'
 
 class CreateBooks
     def initialize(books)
@@ -23,7 +25,7 @@ class CreatePerson
     @persons = persons
   end
 
-  include GetInfo
+  include Helpers
 
   def create
     print 'Do you want to create a student [1] or a teacher [2]? [Input number]: '
@@ -64,4 +66,38 @@ class CreatePerson
     specialization = gets.chomp
     Teacher.new(teacher[:name], teacher[:age], specialization)
   end
+end
+
+class CreateRental
+  def initialize(rentals, books, persons)
+    @rentals = rentals
+    @books = books
+    @persons = persons
+    @list_books = ListBooks.new(books)
+    @list_persons = ListPersons.new(persons)
+  end
+
+  def create
+    puts "\nCreate a new rental"
+    if @books.empty?
+      puts "\nThere are no books in the library. You can create a book from the main menu."
+      return
+    else
+      @list_books.display
+      print "\nSelect which book you want to rent by entering its number: "
+      book_number = gets.chomp.to_i
+    end
+    if @persons.length.zero?
+      puts "\nThere are no registered persons. You can create a person from the main menu."
+    else
+      @list_persons.display
+      print "\nSelect a person from the list by its number (not id!): "
+      person_number = gets.chomp.to_i
+    end
+    print 'Enter date in the following format [YYYY/MM/DD]: '
+    date = gets.chomp
+    Rental.new(date, @persons[person_number - 1], @books[book_number - 1])
+    puts 'Rental created successfully.'
+  end
+  
 end

@@ -1,4 +1,4 @@
-module GetInfo
+module Helpers
   def get_name_and_age
     print 'Enter age: '
     age = gets.chomp.to_i
@@ -6,4 +6,12 @@ module GetInfo
     name = gets.chomp
     info = {age: age, name: name}
   end
+
+  def choosen_person(person_id)
+    @persons.each do |person|
+      return person if person.id == person_id
+    end
+    false
+  end
+
 end

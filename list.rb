@@ -1,3 +1,6 @@
+require_relative 'person'
+require_relative 'helper'
+
 class ListBooks
     def initialize(books)
         @books = books
@@ -32,6 +35,37 @@ class ListPersons
           puts "#{index + 1}. [Teacher] Name: #{person.name}, age: #{person.age}, with ID: #{person.id} and specialization: #{person.specialization}"
         end
       end
+    end
+  end
+end
+
+class ListRentals
+  def initialize(persons)
+    @persons = persons
+    @list_persons = ListPersons.new(persons)
+  end
+
+  include Helpers
+  
+  def display
+    @list_persons.display
+    print "\nWhich person's rentals you want to see? Please, enter the person's ID: "
+    person_id = gets.chomp.to_i
+    person = choosen_person(person_id)
+    if person
+      rentals = person.rentals
+      if rentals.length.zero?
+        puts "\nThere are no rentals for this person's ID."
+      else
+        puts "\nList of all rentals: "
+        rentals.each_with_index do |book_rented, index|
+          # rubocop:disable Layout/LineLength
+          puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
+          # rubocop:enable Layout/LineLength
+        end
+      end
+    else
+      puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
     end
   end
 end
