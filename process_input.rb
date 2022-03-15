@@ -1,17 +1,20 @@
 require_relative 'list'
 require_relative 'create'
+require_relative 'save_data'
 
 class ProcessInput
   def initialize(choice, books, rentals, persons)
     @choice = choice
     @persons = persons
     @rentals = rentals
+    @books = books
     @list_books = ListBooks.new(books)
     @create_books = CreateBooks.new(books)
     @create_person = CreatePerson.new(persons)
     @create_rentals = CreateRental.new(rentals, books, persons)
     @list_persons = ListPersons.new(persons)
     @list_rentals = ListRentals.new(persons)
+    @save_data = SaveData.new(@persons, @books, @rentals)
   end
 
   # rubocop:disable Metrics/CyclomaticComplexity
@@ -24,6 +27,7 @@ class ProcessInput
     when 5 then @create_rentals.create
     when 6 then @list_rentals.display
     when 7
+      @save_data.save
       puts "\nThank you for using School Library App. Goodbye!"
       exit
     else

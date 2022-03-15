@@ -97,7 +97,7 @@ class CreateRental
     end
     print 'Enter date in the following format [YYYY/MM/DD]: '
     date = gets.chomp
-    Rental.new(date, @persons[person_number - 1], @books[book_number - 1])
+    @rentals.push(Rental.new(date, @persons[person_number - 1], @books[book_number - 1]))
     puts 'Rental created successfully.'
   end
 end
