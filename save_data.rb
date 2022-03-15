@@ -15,13 +15,13 @@ class SaveData
     end
     persons_json = JSON.generate(persons_obj)
 
-    books_obj = @books.map do |b|
-      create_book_obj(b)
+    books_obj = @books.map do |book|
+      create_book_obj(book)
     end
     books_json = JSON.generate(books_obj)
 
     rentals_obj = @rentals.map do |r|
-      {'date': r.date, 'person': create_person_obj(r.person), 'book': create_book_obj(r.book)}
+      { date: r.date, person: create_person_obj(r.person), book: create_book_obj(r.book) }
     end
     rentals_json = JSON.generate(rentals_obj)
 

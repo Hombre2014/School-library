@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 require_relative 'process_input'
+require_relative 'helper'
 
 class Main
+  include Helpers
   def initialize
-    @persons = []
-    @books = []
-    @rentals = []
+    @persons = read_file('persons.json')
+    @books = read_file('books.json')
+    @rentals = read_file('rentals.json')
   end
 
   def start

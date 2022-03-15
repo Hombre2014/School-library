@@ -9,5 +9,3 @@ class Rental
     book.rentals << self
   end
 end
-
-# puts rental1 = Rental.new(2020/03/04, "Ivan Grozni", "War")
