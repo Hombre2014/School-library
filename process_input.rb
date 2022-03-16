@@ -26,7 +26,7 @@ class ProcessInput
     when 3 then @create_person.create
     when 4 then @create_books.create
     when 5 then @create_rentals.create
-    when 6 then @list_rentals.display
+    when 6 then @list_rentals.display(@rentals)
     when 7
       @save_data.save
       puts "\nThank you for using School Library App. Goodbye!"

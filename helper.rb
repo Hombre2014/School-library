@@ -15,7 +15,9 @@ module Helpers
   end
 
   def create_person_obj(person)
+    p "#{person.class} from helper line 18"
     if person.instance_of?(Student)
+      p "#{person} from helper line 20"
       return { name: person.name, age: person.age, type: 'Student', id: person.id,
               parent_permission: person.parent_permission }
     end
@@ -27,7 +29,6 @@ module Helpers
 
   def retrive_persons(file_json)
     file_json.map do |person|
-      puts person
       if person['type'] == 'Student'
         Student.new(person['name'], person['age'])
       else

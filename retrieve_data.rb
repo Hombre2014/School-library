@@ -11,18 +11,16 @@ class RetrieveData
       []
     else
       parsed_json = JSON.parse(json)
-      if parsed_json['type'] == 'Student'
-        struct = parsed_json.map do |person|
+      retrieved_persons = parsed_json.map do |person|
+        if person['type'] == 'Student'
           student = Student.new(person['age'], person['name'])
           student.id = person['id']
-          p student
+          p "#{student} from retrieve_data line 18"
           student
-        end
-      else
-        struct = parsed_json.map do |person|
+        else
           teacher = Teacher.new(person['age'], person['name'], person['specialization'])
           teacher.id = person['id']
-          p teacher
+          p "#{teacher} from retrieve_data line 18"
           teacher
         end
       end
@@ -36,6 +34,11 @@ class RetrieveData
     else
       p JSON.parse(json)
       parsed_json = JSON.parse(json)
+      retrieved_books = parsed_json.map do |book|
+        new_book = Book.new(book['title'], book['author'])
+        p new_book
+        new_book
+      end
     end
   end
 
@@ -46,6 +49,17 @@ class RetrieveData
     else
       p JSON.parse(json)
       parsed_json = JSON.parse(json)
+      retrieved_rentals = parsed_json.map do |rental|
+        if (rental['person']['type'] == 'Student')
+          person = Student.new(rental['person']['age'], rental['person']['name'])
+          person.id = rental['person']['id']
+          new_rental = Rental.new(rental['date'],person, Book.new(rental['book']['title'], rental['book']['author']))
+        else
+          person = Teacher.new(rental['person']['age'], rental['person']['name'], rental['person']['specialization'])
+          person.id = rental['person']['id']
+          new_rental = Rental.new(rental['date'], person, Book.new(rental['book']['title'], rental['book']['author']))
+        end
+      end
     end
   end
 end

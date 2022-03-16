@@ -49,25 +49,32 @@ class ListRentals
 
   include Helpers
 
-  def display
+  def display(rentals)
     @list_persons.display
     print "\nWhich person's rentals you want to see? Please, enter the person's ID: "
     person_id = gets.chomp.to_i
-    person = choosen_person(person_id)
-    if person
-      rentals = person.rentals
-      if rentals.length.zero?
-        puts "\nThere are no rentals for this person's ID."
+    # person = choosen_person(person_id)
+    rentals.map do |rental|
+      if rental.person.id == person_id
+        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"
       else
-        puts "\nList of all rentals: "
-        rentals.each_with_index do |book_rented, index|
-          # rubocop:disable Layout/LineLength
-          puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
-          # rubocop:enable Layout/LineLength
-        end
+        puts "\nThere are no rentals for this person's ID."
       end
-    else
-      puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
     end
+    # if person
+    #   rentals = person.rentals
+    #   if rentals.length.zero?
+    #     puts "\nThere are no rentals for this person's ID."
+    #   else
+    #     puts "\nList of all rentals: "
+    #     rentals.each_with_index do |book_rented, index|
+    #       # rubocop:disable Layout/LineLength
+    #       puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
+    #       # rubocop:enable Layout/LineLength
+    #     end
+    #   end
+    # else
+    #   puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
+    # end
   end
 end
