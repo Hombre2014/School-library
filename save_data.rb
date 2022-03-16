@@ -21,7 +21,6 @@ class SaveData
     books_json = JSON.generate(books_obj)
 
     rentals_obj = @rentals.map do |rental|
-      p rental.person
       { date: rental.date, person: create_person_obj(rental.person), book: create_book_obj(rental.book) }
     end
     rentals_json = JSON.generate(rentals_obj)

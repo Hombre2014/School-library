@@ -61,20 +61,5 @@ class ListRentals
         puts "\nThere are no rentals for this person's ID."
       end
     end
-    # if person
-    #   rentals = person.rentals
-    #   if rentals.length.zero?
-    #     puts "\nThere are no rentals for this person's ID."
-    #   else
-    #     puts "\nList of all rentals: "
-    #     rentals.each_with_index do |book_rented, index|
-    #       # rubocop:disable Layout/LineLength
-    #       puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
-    #       # rubocop:enable Layout/LineLength
-    #     end
-    #   end
-    # else
-    #   puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
-    # end
   end
 end

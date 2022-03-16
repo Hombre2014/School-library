@@ -11,16 +11,14 @@ class RetrieveData
       []
     else
       parsed_json = JSON.parse(json)
-      retrieved_persons = parsed_json.map do |person|
+      parsed_json.map do |person|
         if person['type'] == 'Student'
-          student = Student.new(person['age'], person['name'])
+          student = Student.new(person['name'], person['age'])
           student.id = person['id']
-          p "#{student} from retrieve_data line 18"
           student
         else
-          teacher = Teacher.new(person['age'], person['name'], person['specialization'])
+          teacher = Teacher.new(person['name'], person['age'], person['specialization'])
           teacher.id = person['id']
-          p "#{teacher} from retrieve_data line 18"
           teacher
         end
       end
@@ -32,11 +30,9 @@ class RetrieveData
     if json.empty?
       []
     else
-      p JSON.parse(json)
       parsed_json = JSON.parse(json)
-      retrieved_books = parsed_json.map do |book|
+      parsed_json.map do |book|
         new_book = Book.new(book['title'], book['author'])
-        p new_book
         new_book
       end
     end
@@ -47,18 +43,15 @@ class RetrieveData
     if json.empty?
       []
     else
-      p JSON.parse(json)
       parsed_json = JSON.parse(json)
-      retrieved_rentals = parsed_json.map do |rental|
-        if (rental['person']['type'] == 'Student')
-          person = Student.new(rental['person']['age'], rental['person']['name'])
-          person.id = rental['person']['id']
-          new_rental = Rental.new(rental['date'],person, Book.new(rental['book']['title'], rental['book']['author']))
-        else
-          person = Teacher.new(rental['person']['age'], rental['person']['name'], rental['person']['specialization'])
-          person.id = rental['person']['id']
-          new_rental = Rental.new(rental['date'], person, Book.new(rental['book']['title'], rental['book']['author']))
-        end
+      parsed_json.map do |rental|
+        person = if rental['person']['type'] == 'Student'
+                   Student.new(rental['person']['age'], rental['person']['name'])
+                 else
+                   Teacher.new(rental['person']['age'], rental['person']['name'], rental['person']['specialization'])
+                 end
+        person.id = rental['person']['id']
+        Rental.new(rental['date'], person, Book.new(rental['book']['title'], rental['book']['author']))
       end
     end
   end

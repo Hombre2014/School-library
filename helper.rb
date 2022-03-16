@@ -15,15 +15,12 @@ module Helpers
   end
 
   def create_person_obj(person)
-    p "#{person.class} from helper line 18"
     if person.instance_of?(Student)
-      p "#{person} from helper line 20"
-      return { name: person.name, age: person.age, type: 'Student', id: person.id,
-              parent_permission: person.parent_permission }
-    end
-    if person.instance_of?(Teacher)
-      return { name: person.name, age: person.age, type: 'Teacher', id: person.id,
-              specialization: person.specialization }
+      { name: person.name, age: person.age, type: 'Student', id: person.id,
+        parent_permission: person.parent_permission }
+    else
+      { name: person.name, age: person.age, type: 'Teacher', id: person.id,
+        specialization: person.specialization }
     end
   end
 
@@ -52,12 +49,15 @@ module Helpers
   end
 
   def retrive_rentals(file_json)
-    file_json.map { |rental| Rental.new(rental['date'], Person.new(rental['person']['name'], rental['person']['age'], parent_permission: true), Book.new(rental['book']['title'], rental['book']['author'])) }
+    file_json.map do |rental|
+      Rental.new(rental['date'], Person.new(rental['person']['name'], rental['person']['age'], parent_permission: true),
+                 Book.new(rental['book']['title'], rental['book']['author']))
+    end
   end
 
   def file_open(filename)
     if File.exist?(filename)
-      file = File.open(filename) 
+      file = File.open(filename)
       file_data = file.read
       JSON.parse(file_data)
     else
