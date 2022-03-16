@@ -13,11 +13,11 @@ class RetrieveData
       parsed_json = JSON.parse(json)
       parsed_json.map do |person|
         if person['type'] == 'Student'
-          student = Student.new(person['name'], person['age'])
+          student = Student.new(person['age'], person['name'])
           student.id = person['id']
           student
         else
-          teacher = Teacher.new(person['name'], person['age'], person['specialization'])
+          teacher = Teacher.new(person['age'], person['name'], person['specialization'])
           teacher.id = person['id']
           teacher
         end

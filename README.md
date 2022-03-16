@@ -28,6 +28,10 @@ The phase 4 requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 5 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_refactor.md)
 
+### Phase 6, preserve data
+
+The phase 6 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_preserve_data.md)
+
 ## Usage
 
 To run the project locally do the following:

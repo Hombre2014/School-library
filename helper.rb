@@ -16,10 +16,10 @@ module Helpers
 
   def create_person_obj(person)
     if person.instance_of?(Student)
-      { name: person.name, age: person.age, type: 'Student', id: person.id,
+      { age: person.age, name: person.name, type: 'Student', id: person.id,
         parent_permission: person.parent_permission }
     else
-      { name: person.name, age: person.age, type: 'Teacher', id: person.id,
+      { age: person.age, name: person.name, type: 'Teacher', id: person.id,
         specialization: person.specialization }
     end
   end
@@ -27,9 +27,9 @@ module Helpers
   def retrive_persons(file_json)
     file_json.map do |person|
       if person['type'] == 'Student'
-        Student.new(person['name'], person['age'])
+        Student.new(person['age'], person['name'])
       else
-        Teacher.new(person['name'], person['age'], person['specialization'])
+        Teacher.new(person['age'], person['name'], person['specialization'])
       end
     end
   end
@@ -50,7 +50,7 @@ module Helpers
 
   def retrive_rentals(file_json)
     file_json.map do |rental|
-      Rental.new(rental['date'], Person.new(rental['person']['name'], rental['person']['age'], parent_permission: true),
+      Rental.new(rental['date'], Person.new(rental['person']['age'], rental['person']['name'], parent_permission: true),
                  Book.new(rental['book']['title'], rental['book']['author']))
     end
   end

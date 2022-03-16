@@ -21,7 +21,7 @@ class Main
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts "7 - Exit\n"
-    print '[Your choice?]: '
+    print "\n[Your choice?]: "
     choice = gets.chomp.to_i
     process_input = ProcessInput.new(choice, @books, @rentals, @persons)
     process_input.input
