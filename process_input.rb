@@ -1,6 +1,7 @@
 require_relative 'list'
 require_relative 'create'
 require_relative 'save_data'
+require_relative 'retrieve_data'
 
 class ProcessInput
   def initialize(choice, books, rentals, persons)

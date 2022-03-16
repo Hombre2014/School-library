@@ -5,9 +5,10 @@ require_relative 'helper'
 class Main
   include Helpers
   def initialize
-    @persons = read_file('persons.json')
-    @books = read_file('books.json')
-    @rentals = read_file('rentals.json')
+    @retrieve_data = RetrieveData.new(@persons, @books, @rentals)
+    @persons = @retrieve_data.retrieve_persons
+    @books = @retrieve_data.retrieve_books
+    @rentals = @retrieve_data.retrieve_rentals
   end
 
   def start
