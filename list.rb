@@ -59,7 +59,7 @@ class ListRentals
     puts
     rentals.map do |rental|
       if rental.person.id == person_id
-        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"  
+        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"
         found = true
       end
     end
