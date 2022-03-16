@@ -1,5 +1,3 @@
-b# School library
-
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 > OOP School library.
@@ -60,7 +58,7 @@ To run the project locally do the following:
 - Twitter: [@Chamkoriyski](https://twitter.com/Chamkoriyski)
 - LinkedIn: [axebit](https://linkedin.com/in/axebit)
 
-From pahse 5 onwards
+From phase 5 onwards
 
 👤 **Anuar Shaidenov**
 
