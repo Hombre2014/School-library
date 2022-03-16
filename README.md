@@ -32,6 +32,10 @@ The phase 5 requirements can be viewed [here](https://github.com/microverseinc/c
 
 The phase 6 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_preserve_data.md)
 
+### Phase 7, unit tests
+
+The phase 7 requirements can be viewed [here](https://github.com/microverseinc/curriculum-ruby/blob/main/oop/school_library_unit_tests.md)
+
 ## Usage
 
 To run the project locally do the following:
@@ -42,13 +46,11 @@ To run the project locally do the following:
   `cd School-library`
 - run the command:</br>
   `ruby main.rb`</br>
-- OR simply type</br>
-  `./main.rb`
 
 ## Built With
 
 - Major languages: Ruby
-- Tested with: - [Rubocop](https://rubocop.org/)
+- Tested with: - [Rubocop](https://rubocop.org/) and [Rspec](https://rspec.info/)
 
 ## Authors
 
