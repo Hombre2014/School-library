@@ -1,11 +1,14 @@
 #!/usr/bin/env ruby
 require_relative 'process_input'
+require_relative 'helper'
 
 class Main
+  include Helpers
   def initialize
-    @persons = []
-    @books = []
-    @rentals = []
+    @retrieve_data = RetrieveData.new(@persons, @books, @rentals)
+    @persons = @retrieve_data.retrieve_persons
+    @books = @retrieve_data.retrieve_books
+    @rentals = @retrieve_data.retrieve_rentals
   end
 
   def start
@@ -18,7 +21,7 @@ class Main
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts "7 - Exit\n"
-    print '[Your choice?]: '
+    print "\n[Your choice?]: "
     choice = gets.chomp.to_i
     process_input = ProcessInput.new(choice, @books, @rentals, @persons)
     process_input.input

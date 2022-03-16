@@ -11,6 +11,7 @@ class ListBooks
       puts "\nThere are no books in the library. You can create a book from the main menu."
     else
       puts "\nHere are all the books in the library:"
+      puts
       @books.each_with_index do |book, index|
         puts "#{index + 1}. Book's title: #{book.title}, Book's author: #{book.author}"
       end
@@ -28,6 +29,7 @@ class ListPersons
       puts "\nThere are no registered persons. You can create a person from the main menu."
     else
       puts "\nList of all the persons:"
+      puts
       @persons.each_with_index do |person, index|
         if person.is_a?(Student)
           puts "#{index + 1}. [Student] Name: #{person.name}, age: #{person.age}, with ID: #{person.id}"
@@ -49,25 +51,18 @@ class ListRentals
 
   include Helpers
 
-  def display
+  def display(rentals)
     @list_persons.display
     print "\nWhich person's rentals you want to see? Please, enter the person's ID: "
     person_id = gets.chomp.to_i
-    person = choosen_person(person_id)
-    if person
-      rentals = person.rentals
-      if rentals.length.zero?
-        puts "\nThere are no rentals for this person's ID."
-      else
-        puts "\nList of all rentals: "
-        rentals.each_with_index do |book_rented, index|
-          # rubocop:disable Layout/LineLength
-          puts "#{index + 1}. Book \'#{book_rented.book.title}\' was rented on #{book_rented.date} by #{book_rented.person.name}."
-          # rubocop:enable Layout/LineLength
-        end
+    found = false
+    puts
+    rentals.map do |rental|
+      if rental.person.id == person_id
+        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"
+        found = true
       end
-    else
-      puts "\nThere is no person with this ID #{person_id}. Please, select the correct ID."
     end
+    puts "There are no rentals for this person's ID." unless found
   end
 end
