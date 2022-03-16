@@ -54,12 +54,13 @@ class ListRentals
     print "\nWhich person's rentals you want to see? Please, enter the person's ID: "
     person_id = gets.chomp.to_i
     # person = choosen_person(person_id)
+    found = false
     rentals.map do |rental|
       if rental.person.id == person_id
-        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"
-      else
-        puts "\nThere are no rentals for this person's ID."
+        puts "Book #{rental.book.title} was rented on #{rental.date} by #{rental.person.name}"  
+        found = true
       end
     end
+    puts "\nThere are no rentals for this person's ID." unless found 
   end
 end
