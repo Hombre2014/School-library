@@ -1,6 +1,6 @@
-require '../rental'
-require '../book'
-require '../person'
+require_relative '../rental'
+require_relative '../book'
+require_relative '../person'
 
 describe Rental do
   context 'Testing the Rental class' do
@@ -17,7 +17,7 @@ describe Rental do
       expect(rental.person.instance_of?(Person)) == true
     end
 
-    it 'should have the right name' do
+    it 'should have the right name Anuar' do
       expect(rental.person.name) == 'Anuar'
     end
 

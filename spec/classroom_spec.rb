@@ -1,4 +1,4 @@
-require '../classroom'
+require_relative '../classroom'
 
 describe Classroom do
   context 'Testing the Classroom class' do
@@ -9,7 +9,7 @@ describe Classroom do
     end
 
     it "shouldn't have students initially" do
-      expect(classroom.students.size).zero?
+      expect(classroom.students.size) == 0
     end
   end
 end
