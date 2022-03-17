@@ -50,6 +50,11 @@ To run the project locally do the following:
 - Major languages: Ruby
 - Tested with: - [Rubocop](https://rubocop.org/) and [Rspec](https://rspec.info/)
 
+To run the tests cd to the spec directory:
+`cd spec`
+Type this command to run the tests:
+`rspec FILENAME`
+
 ## Authors
 
 👤 **Yuriy Chamkoriyski**
