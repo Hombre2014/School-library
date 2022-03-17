@@ -1,4 +1,4 @@
-require '../book'
+require_relative '../book'
 
 describe Book do
   context 'Check if the instance is a class of Book' do

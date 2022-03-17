@@ -1,5 +1,5 @@
-require '../person'
-require '../nameable'
+require_relative '../person'
+require_relative '../nameable'
 
 describe Person do
   context 'Testing the Person class' do

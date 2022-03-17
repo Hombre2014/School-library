@@ -1,5 +1,5 @@
-require '../decorator'
-require '../nameable'
+require_relative '../decorator'
+require_relative '../nameable'
 
 describe Decorator do
   context 'Testing the Decorator class' do
